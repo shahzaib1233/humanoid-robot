@@ -11,11 +11,11 @@ const config = {
   url: 'https://shahzaib1233.github.io',
   // Set the /<base> pathname under which your site is served
   // For GitHub Pages, this is usually /<project-name>/
-  baseUrl: '/humainoid-robots-book/',
+  baseUrl: '/humanoid-robot/',
 
   // GitHub pages deployment config.
   organizationName: 'shahzaib1233', // Usually your GitHub org/user name.
-  projectName: 'humainoid-robots-book', // Usually your repo name.
+  projectName: 'humanoid-robot', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/shahzaib1233/humainoid-robots-book/edit/master/',
+            'https://github.com/shahzaib1233/humanoid-robot/edit/main/',
           routeBasePath: '/', // Serve the docs at the site's root
         },
         blog: false, // Disable blog for textbook
@@ -68,7 +68,7 @@ const config = {
             label: 'Textbook',
           },
           {
-            href: 'https://github.com/shahzaib1233/humainoid-robots-book',
+            href: 'https://github.com/shahzaib1233/humanoid-robot',
             label: 'GitHub',
             position: 'right',
           },
@@ -108,7 +108,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/shahzaib1233/humainoid-robots-book',
+                href: 'https://github.com/shahzaib1233/humanoid-robot',
               },
             ],
           },
