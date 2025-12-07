@@ -353,14 +353,14 @@ x
 
 **Gradient Descent:**
 ```
-x_{k+1} = x_k - α * ∇f(x_k)
+x<sub>k+1</sub> = x<sub>k</sub> - α * ∇f(x<sub>k</sub>)
 ```
 
 Where α is the step size and ∇f is the gradient.
 
 **Newton's Method:**
 ```
-x_{k+1} = x_k - [∇²f(x_k)]⁻¹ * ∇f(x_k)
+x<sub>k+1</sub> = x<sub>k</sub> - [∇²f(x<sub>k</sub>)]<sup>-1</sup> * ∇f(x<sub>k</sub>)
 ```
 
 Where ∇²f is the Hessian matrix of second derivatives.
@@ -442,7 +442,7 @@ dx/dt = f(x, t)
 
 **Euler Method:**
 ```
-x_{n+1} = x_n + h * f(x_n, t_n)
+x<sub>n+1</sub> = x<sub>n</sub> + h * f(x<sub>n</sub>, t<sub>n</sub>)
 ```
 
 **Runge-Kutta (RK4):**
@@ -451,19 +451,19 @@ k₁ = h * f(x_n, t_n)
 k₂ = h * f(x_n + k₁/2, t_n + h/2)
 k₃ = h * f(x_n + k₂/2, t_n + h/2)
 k₄ = h * f(x_n + k₃, t_n + h)
-x_{n+1} = x_n + (k₁ + 2*k₂ + 2*k₃ + k₄)/6
+x<sub>n+1</sub> = x<sub>n</sub> + (k₁ + 2*k₂ + 2*k₃ + k₄)/6
 ```
 
 ### Root Finding
 
 **Newton-Raphson Method:**
 ```
-x_{n+1} = x_n - f(x_n)/f'(x_n)
+x<sub>n+1</sub> = x<sub>n</sub> - f(x<sub>n</sub>)/f'(x<sub>n</sub>)
 ```
 
 For systems of equations, this generalizes to:
 ```
-x_{n+1} = x_n - J_f(x_n)⁻¹ * f(x_n)
+x<sub>n+1</sub> = x<sub>n</sub> - J<sub>f</sub>(x<sub>n</sub>)<sup>-1</sup> * f(x<sub>n</sub>)
 ```
 
 Where J_f is the Jacobian matrix of f.

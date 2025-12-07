@@ -309,10 +309,10 @@ Robust control handles model uncertainties and disturbances:
 **H∞ Control:**
 Minimizes the worst-case effect of disturbances:
 ```
-||T_{wd}||_∞ = sup_ω σ̄(T_{wd}(jω))
+||T<sub>wd</sub>||<sub>∞</sub> = sup<sub>ω</sub> σ̄(T<sub>wd</sub>(jω))
 ```
 
-Where T_{wd} is the transfer function from disturbances to errors, and σ̄ is the maximum singular value.
+Where T<sub>wd</sub> is the transfer function from disturbances to errors, and σ̄ is the maximum singular value.
 
 **μ-Synthesis:**
 Handles structured uncertainties in the system model.

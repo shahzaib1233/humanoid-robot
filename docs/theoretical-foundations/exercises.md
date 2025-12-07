@@ -223,15 +223,15 @@ Use the relationship between center of mass motion and ZMP to design a stabilizi
 ### Problem
 Implement a Kalman filter to estimate the position and velocity of a moving robot given noisy position measurements. The system model is:
 ```
-x_k = A * x_{k-1} + w_{k-1}
-z_k = H * x_k + v_k
+x<sub>k</sub> = A * x<sub>k-1</sub> + w<sub>k-1</sub>
+z<sub>k</sub> = H * x<sub>k</sub> + v<sub>k</sub>
 ```
 
-Where x_k = [position_k, velocity_k]ᵀ, A = [1 dt; 0 1], H = [1 0], with dt = 0.1s. Process noise covariance Q = [0.01 0; 0 0.01], measurement noise R = 0.1.
+Where x<sub>k</sub> = [position<sub>k</sub>, velocity<sub>k</sub>]<sup>ᵀ</sup>, A = [1 dt; 0 1], H = [1 0], with dt = 0.1s. Process noise covariance Q = [0.01 0; 0 0.01], measurement noise R = 0.1.
 
 ### Instructions
-1. Implement the prediction step: x̂_k⁻ = A * x̂_{k-1}, P_k⁻ = A * P_{k-1} * Aᵀ + Q
-2. Implement the update step: K_k = P_k⁻ * Hᵀ * (H * P_k⁻ * Hᵀ + R)⁻¹, x̂_k = x̂_k⁻ + K_k * (z_k - H * x̂_k⁻), P_k = (I - K_k * H) * P_k⁻
+1. Implement the prediction step: x̂<sup>⁻</sup><sub>k</sub> = A * x̂<sub>k-1</sub>, P<sup>⁻</sup><sub>k</sub> = A * P<sub>k-1</sub> * A<sup>ᵀ</sup> + Q
+2. Implement the update step: K<sub>k</sub> = P<sup>⁻</sup><sub>k</sub> * H<sup>ᵀ</sup> * (H * P<sup>⁻</sup><sub>k</sub> * H<sup>ᵀ</sup> + R)<sup>-1</sup>, x̂<sub>k</sub> = x̂<sup>⁻</sup><sub>k</sub> + K<sub>k</sub> * (z<sub>k</sub> - H * x̂<sup>⁻</sup><sub>k</sub>), P<sub>k</sub> = (I - K<sub>k</sub> * H) * P<sup>⁻</sup><sub>k</sub>
 3. Test with simulated noisy measurements
 4. Compare filtered estimates with true values
 

@@ -78,7 +78,7 @@ Compensates for robot dynamics with feedforward terms:
 Optimizes future behavior based on a model of the system:
 ```
 min ∑[x_k^T Q x_k + u_k^T R u_k]
-s.t. x_{k+1} = f(x_k, u_k)
+s.t. x<sub>k+1</sub> = f(x<sub>k</sub>, u<sub>k</sub>)
 ```
 
 ## Balance and Locomotion Control
