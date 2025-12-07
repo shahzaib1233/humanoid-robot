@@ -8,13 +8,13 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-organization.github.io',
+  url: 'https://shahzaib1233.github.io',
   // Set the /<base> pathname under which your site is served
   // For GitHub Pages, this is usually /<project-name>/
   baseUrl: '/humainoid-robots-book/',
 
   // GitHub pages deployment config.
-  organizationName: 'your-organization', // Usually your GitHub org/user name.
+  organizationName: 'shahzaib1233', // Usually your GitHub org/user name.
   projectName: 'humainoid-robots-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/shahzaib1233/humainoid-robots-book/edit/master/',
           routeBasePath: '/', // Serve the docs at the site's root
         },
         blog: false, // Disable blog for textbook
@@ -68,7 +68,7 @@ const config = {
             label: 'Textbook',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/shahzaib1233/humainoid-robots-book',
             label: 'GitHub',
             position: 'right',
           },
@@ -108,7 +108,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/shahzaib1233/humainoid-robots-book',
               },
             ],
           },
