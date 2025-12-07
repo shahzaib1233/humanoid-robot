@@ -17,7 +17,10 @@
       "Bash(find . -name \"*.md\" -path \"./docs/*\" -exec grep -l \"\\.png\" {} ;)",
       "Bash(powershell \"Get-ChildItem -Path docs -Filter exercises.md -Recurse -Name\")",
       "Bash(powershell \"Get-ChildItem -Path docs -Filter educator-resources.md -Recurse -Name\")",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate Docusaurus configuration for GitHub Pages deployment\n\n- Set organizationName to shahzaib1233\n- Set projectName to humainoid-robots-book\n- Update editUrl to point to the correct repository\n- Update GitHub links in navbar and footer to point to the correct repository\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd GitHub Actions workflow for GitHub Pages deployment\n\n- Creates a workflow to automatically deploy the Docusaurus site to GitHub Pages\n- Builds the site on every push to master branch\n- Uses peaceiris/actions-gh-pages for deployment\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git add .gitignore .claude/settings.local.json)"
     ],
     "deny": [],
     "ask": []
