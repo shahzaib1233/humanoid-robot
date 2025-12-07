@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify\\scripts\\powershell\\setup-plan.ps1\" -Json)",
+      "Bash(powershell -Command \"(Get-Content ''D:\\giaic\\hackhathone-qwen\\humainoid-robots-book\\docs\\intro\\index.md'' | Measure-Object -Word).Words\")",
+      "Bash(dir /s history)",
+      "Bash(dir historyprompts /s)",
+      "Bash(powershell -Command \"Get-ChildItem ''D:\\giaic\\hackhathone-qwen\\humainoid-robots-book\\docs\\practical-implementation\\'' -Filter ''*.md'' | ForEach-Object { (Get-Content $_FullName | Measure-Object -Word).Words } | Measure-Object -Sum\")",
+      "Bash(powershell \"Get-ChildItem ''D:\\giaic\\hackhathone-qwen\\humainoid-robots-book\\specs\\'' -Recurse\")",
+      "Bash(mkdir -p docs/intro docs/theoretical-foundations docs/practical-implementation docs/control-systems docs/learning-algorithms docs/ethics-safety docs/case-studies docs/future-directions)",
+      "Bash(powershell \"Get-ChildItem ''D:\\giaic\\hackhathone-qwen\\humainoid-robots-book\\docs\\'' -Recurse -Name\")",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(npx docusaurus start --port 3000)",
+      "Bash(npx docusaurus start --port 3001)",
+      "Bash(npx docusaurus start --port 3002)",
+      "Bash(find . -name \"*.md\" -path \"./docs/*\" -exec grep -l \"\\.png\" {} ;)",
+      "Bash(powershell \"Get-ChildItem -Path docs -Filter exercises.md -Recurse -Name\")",
+      "Bash(powershell \"Get-ChildItem -Path docs -Filter educator-resources.md -Recurse -Name\")",
+      "Bash(git add .)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
