@@ -28,3 +28,18 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Ensure the chat widget doesn't interfere with page content */
+.docusaurus-chat-integration {
+  position: relative;
+  z-index: 999;
+}
+
+/* Adjust for mobile screens if needed */
+@media (max-width: 768px) {
+  .chat-widget {
+    width: 300px;
+    right: 10px;
+    bottom: 10px;
+  }
+}

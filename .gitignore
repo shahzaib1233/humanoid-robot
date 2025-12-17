@@ -1,6 +1,47 @@
 # Dependencies
 node_modules/
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/modules/
+.pytest_cache/
+.hypothesis/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+mypy_cache/
+.dmypy.json
+dypy.out
+.pyre/
+.pytype/
+cython_debug/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+.ENV/
+
 # Build outputs
 build/
 dist/
@@ -86,3 +127,9 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
+# Database
+*.db
+*.db-journal
+
+
+nul

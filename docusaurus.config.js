@@ -120,6 +120,18 @@ const config = {
         darkTheme: require('prism-react-renderer').themes.dracula,
       },
     }),
+
+  plugins: [
+    // Add custom component plugin for the chat widget
+    function() {
+      return {
+        name: 'custom-chat-widget',
+        getClientModules() {
+          return [require.resolve('./src/components/DocusaurusChatWidget/Root')];
+        },
+      };
+    },
+  ],
 };
 
 module.exports = config;

@@ -1,0 +1,206 @@
+# OpenAPI Contract: RAG Chatbot API
+
+openapi: 3.0.3
+info:
+  title: RAG Chatbot API
+  description: API for the Retrieval-Augmented Generation chatbot system
+  version: 1.0.0
+  contact:
+    name: RAG Chatbot Development Team
+    email: team@example.com
+
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://rag-chatbot-api.example.com
+    description: Production server
+
+paths:
+  /index:
+    post:
+      summary: Process and embed Docusaurus content
+      description: Takes MD/MDX content and processes it for semantic search by embedding it into the vector database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndexRequest'
+            example:
+              content_directory: "/path/to/docs"
+              chunk_size: 1000
+              overlap: 100
+      responses:
+        '200':
+          description: Content successfully indexed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /chat:
+    post:
+      summary: Generate RAG-powered response to user query
+      description: Accepts user queries and returns responses based on retrieved context from the book content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+            example:
+              query: "What are the key principles of humanoid robotics?"
+              selected_text: "Humanoid robots are designed to mimic human form and behavior..."
+              mode: "normal"
+              session_id: "session-12345"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    IndexRequest:
+      type: object
+      required:
+        - content_directory
+      properties:
+        content_directory:
+          type: string
+          description: Path to the directory containing MD/MDX content files
+          example: "/path/to/docs"
+        chunk_size:
+          type: integer
+          description: Size of content chunks in characters (default: 1000)
+          example: 1000
+        overlap:
+          type: integer
+          description: Overlap between chunks in characters (default: 100)
+          example: 100
+
+    IndexResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Indexing status
+          example: "success"
+        processed_files:
+          type: integer
+          description: Number of files processed
+          example: 25
+        indexed_chunks:
+          type: integer
+          description: Number of content chunks indexed
+          example: 150
+        message:
+          type: string
+          description: Additional information about the indexing process
+          example: "Successfully processed 25 files into 150 chunks"
+
+    ChatRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: User's query or question
+          example: "What are the key principles of humanoid robotics?"
+        selected_text:
+          type: string
+          description: Text selected by user on the page (optional)
+          example: "Humanoid robots are designed to mimic human form and behavior..."
+        mode:
+          type: string
+          description: Query mode (normal or selection-only)
+          enum: [normal, selection-only]
+          default: normal
+          example: "normal"
+        session_id:
+          type: string
+          description: Chat session identifier (optional, will be created if not provided)
+          example: "session-12345"
+
+    ChatResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          description: The generated response to the user query
+          example: "The key principles of humanoid robotics include..."
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Citation'
+          description: List of citations to source material
+        session_id:
+          type: string
+          description: Chat session identifier
+          example: "session-12345"
+        tokens_used:
+          type: integer
+          description: Number of tokens used in the response
+          example: 150
+
+    Citation:
+      type: object
+      properties:
+        source:
+          type: string
+          description: Source document reference
+          example: "docs/introduction.md"
+        content:
+          type: string
+          description: Relevant content snippet from the source
+          example: "Humanoid robots are designed to mimic human form and behavior..."
+        similarity_score:
+          type: number
+          format: float
+          description: Similarity score of this citation to the query
+          example: 0.85
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Invalid query parameters"
+        details:
+          type: string
+          description: Additional error details
+          example: "Query cannot be empty"
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
